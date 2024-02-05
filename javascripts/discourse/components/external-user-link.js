@@ -8,35 +8,46 @@ export default class ExternalUserLink extends Component {
   @service site;
   @tracked externalUserLinkUrl;
   @tracked externalLinkUserFieldId;
+  @tracked showExternalLink = false;
 
   constructor() {
     super(...arguments);
-    const siteUserFields = this.site.user_fields;
+    if (settings.use_custom_user_field) {
+      const siteUserFields = this.site.user_fields;
 
-    if (!siteUserFields) {
-      return;
-    }
-
-    const externalLinkField = siteUserFields.filterBy(
-      "name",
-      settings.external_link_user_field
-    )[0];
-
-    if (!externalLinkField) {
-      return;
-    }
-
-    this.getUserFields().then((data) => {
-      const userFields = data.user.user_fields;
-
-      this.externalLinkUserFieldId = userFields[externalLinkField.id];
-      if (!this.externalLinkUserFieldId) {
+      if (!siteUserFields) {
         return;
-      } else {
-        const url = settings.external_link_url + this.externalLinkUserFieldId;
-        this.externalUserLinkUrl = url;
       }
-    });
+
+      const externalLinkField = siteUserFields.filterBy(
+        "name",
+        settings.external_link_user_field
+      )[0];
+
+      if (!externalLinkField) {
+        return;
+      }
+
+      this.getUserFields().then((data) => {
+        const userFields = data.user.user_fields;
+
+        this.externalLinkUserFieldId = userFields[externalLinkField.id];
+        if (!this.externalLinkUserFieldId) {
+          return;
+        } else {
+          this.showExternalLink = true;
+          const url = settings.external_link_url + this.externalLinkUserFieldId;
+          this.externalUserLinkUrl = url;
+        }
+      });
+    } else {
+      this.getUserFields().then((data) => {
+        const userFields = data.user.username;
+        const url = settings.external_link_url + userFields;
+        this.externalUserLinkUrl = url;
+        this.showExternalLink = true;
+      });
+    }
   }
 
   getUserFields() {
