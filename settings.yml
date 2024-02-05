@@ -2,7 +2,7 @@ external_link_user_field:
   type: string
   default: ""
   description: "The exact name (case sensitive) of the custom user input field used to add an external link on the profile. For example, 'Github username'. If empty, the Discourse username will be used."
-external_link_url:
+external_link_prefix:
   type: string
   default: ""
   description: "The base url for the external link user input field. For example, 'http://github.com/'."

@@ -36,14 +36,15 @@ export default class ExternalUserLink extends Component {
           return;
         } else {
           this.showExternalLink = true;
-          const url = settings.external_link_url + this.externalLinkUserFieldId;
+          const url =
+            settings.external_link_prefix + this.externalLinkUserFieldId;
           this.externalUserLinkUrl = url;
         }
       });
     } else {
       this.getUserFields().then((data) => {
         const userFields = data.user.username;
-        const url = settings.external_link_url + userFields;
+        const url = settings.external_link_prefix + userFields;
         this.externalUserLinkUrl = url;
         this.showExternalLink = true;
       });
