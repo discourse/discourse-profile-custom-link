@@ -22,6 +22,10 @@ export default class ExternalUserLink extends Component {
       settings.external_link_user_field
     )[0];
 
+    if (!externalLinkField) {
+      return;
+    }
+
     this.getUserFields().then((data) => {
       const userFields = data.user.user_fields;
 
