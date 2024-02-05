@@ -1,4 +1,6 @@
-<a
-  href="{{externalUserLinkUrl.link}}"
-  target="_blank"
->{{externalUserLinkUrl.name}}</a>
+{{#if externalLinkUserFieldId}}
+  <a href="{{externalUserLinkUrl}}" target="_blank">
+    {{d-icon (theme-setting "external_link_icon")}}{{theme-setting
+      "external_link_label"
+    }}</a>
+{{/if}}

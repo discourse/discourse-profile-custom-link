@@ -1,12 +1,15 @@
-external_profile_url:
+external_link_user_field:
+  type: string
+  default: ""
+  description: "The exact name of the custom user input field used to add an external link on the profile. For example, 'Github username'."
+external_link_url:
   type: string
   default: ""
   description: "The base url for the external link user input field. For example, 'http://github.com/'."
-external_profile_label:
+external_link_label:
   type: string
   default: ""
-  description: "The name that will be used to display the link. For example, 'GitHub'."
-external_user_field:
-  type: string
-  default: ""
-  description: "The exact name of the custom user input field. For example, 'Github username'."
+  description: "The name that will be used to display the generated link. For example, 'GitHub'."
+external_link_icon:
+  default: "external-link-alt"
+  description: "The the icon to be used for the external link."
