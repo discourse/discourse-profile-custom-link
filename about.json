@@ -1,8 +1,7 @@
 {
   "about_url": null,
   "license_url": null,
-  "assets": {
-  },
-  "name": "discourse-user-link",
+  "assets": {},
+  "name": "discourse-external-user-link",
   "component": true
 }
