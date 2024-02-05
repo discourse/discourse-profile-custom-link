@@ -12,7 +12,7 @@ export default class ExternalUserLink extends Component {
 
   constructor() {
     super(...arguments);
-    if (settings.use_custom_user_field) {
+    if (settings.external_link_user_field) {
       const siteUserFields = this.site.user_fields;
 
       if (!siteUserFields) {

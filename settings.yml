@@ -1,11 +1,7 @@
-use_custom_user_field:
-  type: bool
-  default: true
-  description: "Use the value of the custom user field to generate the link. If false, the value of the username will be used."
 external_link_user_field:
   type: string
   default: ""
-  description: "The exact name (case sensitive) of the custom user input field used to add an external link on the profile. For example, 'Github username'."
+  description: "The exact name (case sensitive) of the custom user input field used to add an external link on the profile. For example, 'Github username'. If empty, the Discourse username will be used."
 external_link_url:
   type: string
   default: ""
