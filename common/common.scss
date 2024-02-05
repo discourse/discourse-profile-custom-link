@@ -1,0 +1,29 @@
+.user-location-and-website-outlet,
+.user-card-location-and-website-outlet {
+  display: flex;
+  gap: 0.25em;
+
+  .external-user-link {
+    a {
+      @include ellipsis;
+    }
+  }
+}
+.user-location-and-website-outlet {
+  margin-inline: 1em;
+}
+
+.user-card-location-and-website-outlet {
+  margin-inline: 0.5em;
+
+  .external-user-link {
+    a {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    svg {
+      margin-right: 0.25em;
+    }
+  }
+}
