@@ -4,14 +4,15 @@ import { inject as service } from "@ember/service";
 import { ajax } from "discourse/lib/ajax";
 
 export default class ExternalUserLink extends Component {
-  @service currentUser;
   @service site;
   @tracked externalUserLinkUrl;
   @tracked externalLinkUserFieldId;
   @tracked showExternalLink = false;
+  @tracked user = this.args.model.username;
 
   constructor() {
     super(...arguments);
+
     if (settings.external_link_user_field) {
       const siteUserFields = this.site.user_fields;
 
@@ -37,22 +38,25 @@ export default class ExternalUserLink extends Component {
         } else {
           this.showExternalLink = true;
           const url =
-            settings.external_link_prefix + this.externalLinkUserFieldId;
+            this.addSlashIfNeeded(settings.external_link_prefix) +
+            this.externalLinkUserFieldId;
           this.externalUserLinkUrl = url;
         }
       });
     } else {
-      this.getUserFields().then((data) => {
-        const userFields = data.user.username;
-        const url = settings.external_link_prefix + userFields;
-        this.externalUserLinkUrl = url;
-        this.showExternalLink = true;
-      });
+      const url =
+        this.addSlashIfNeeded(settings.external_link_prefix) + this.user;
+      this.externalUserLinkUrl = url;
+      this.showExternalLink = true;
     }
   }
 
   getUserFields() {
-    let url = `/u/${this.currentUser.username}.json`;
+    let url = `/u/${this.user}.json`;
     return ajax(url);
+  }
+
+  addSlashIfNeeded(url) {
+    return url.slice(-1) !== "/" ? url + "/" : url;
   }
 }
