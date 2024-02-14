@@ -2,6 +2,6 @@
   "about_url": null,
   "license_url": null,
   "assets": {},
-  "name": "discourse-user-external-link",
+  "name": "discourse-profile-custom-link",
   "component": true
 }

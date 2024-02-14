@@ -13,6 +13,12 @@
   margin-inline: 1em;
 }
 
+.user-profile__location-and-website > span:first-child {
+  .user-location-and-website-outlet {
+    margin-inline: 0;
+  }
+}
+
 .user-card-location-and-website-outlet {
   margin-inline: 0.5em;
 
