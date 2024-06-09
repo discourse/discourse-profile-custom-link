@@ -1,7 +1,7 @@
 {
-  "about_url": null,
+  "about_url": "https://meta.discourse.org/t/custom-profile-link/295470",
   "license_url": null,
   "assets": {},
-  "name": "discourse-profile-custom-link",
+  "name": "Custom Profile Link",
   "component": true
 }
