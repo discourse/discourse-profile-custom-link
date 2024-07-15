@@ -33,10 +33,10 @@ export default class ProfileCustomLink extends Component {
       if (!this.customLinkFieldId) {
         return;
       } else {
-        this.showCustomLink = true;
         const url =
           settings.profile_custom_link_prefix + this.customLinkFieldId;
         this.customLinkUrl = url;
+        this.showCustomLink = true;
       }
     } else {
       const url = settings.profile_custom_link_prefix + this.user;
