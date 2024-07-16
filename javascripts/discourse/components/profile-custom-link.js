@@ -30,18 +30,19 @@ export default class ProfileCustomLink extends Component {
       }
 
       this.customLinkFieldId = this.userFields[customLinkField.id];
-      if (!this.customLinkFieldId) {
-        return;
+
+      if (parseInt(this.customLinkFieldId)>0) {
+        if (!this.customLinkFieldId) {
+            return;
+        } else {
+            const url =
+            settings.profile_custom_link_prefix + this.customLinkFieldId;
+            this.customLinkUrl = url;
+            this.showCustomLink = true;
+        }
       } else {
-        const url =
-          settings.profile_custom_link_prefix + this.customLinkFieldId;
-        this.customLinkUrl = url;
-        this.showCustomLink = true;
+        return;
       }
-    } else {
-      const url = settings.profile_custom_link_prefix + this.user;
-      this.customLinkUrl = url;
-      this.showCustomLink = true;
     }
   }
 }
