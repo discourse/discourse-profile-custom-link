@@ -36,7 +36,7 @@ export default class ProfileCustomLink extends Component {
             return;
         } else {
             const url =
-            settings.profile_custom_link_prefix + this.customLinkFieldId;
+            settings.profile_custom_link_prefix + parseInt(this.customLinkFieldId);
             this.customLinkUrl = url;
             this.showCustomLink = true;
         }
