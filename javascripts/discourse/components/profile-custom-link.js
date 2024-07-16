@@ -2,10 +2,13 @@ import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { service } from "@ember/service";
 
+const digits = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+
 export default class ProfileCustomLink extends Component {
   @service site;
   @tracked customLinkUrl;
   @tracked customLinkFieldId;
+  @tracked customLinks = [];
   @tracked showCustomLink = false;
   @tracked user = this.args.model.username;
   @tracked userFields = this.args.model.user_fields;
@@ -29,19 +32,23 @@ export default class ProfileCustomLink extends Component {
         return;
       }
 
-      this.customLinkFieldId = this.userFields[customLinkField.id];
-
-      if (parseInt(this.customLinkFieldId)>0) {
-        if (!this.customLinkFieldId) {
-            return;
+      let customLinkFieldValue = this.userFields[customLinkField.id];
+      let parsingBuffer = "";
+      while (customLinkFieldValue.length > 0) {
+        if (digits.includes(customLinkFieldValue[0])) {
+          parsingBuffer += customLinkFieldValue[0];
+          customLinkFieldValue = customLinkFieldValue.slice(1);
         } else {
-            const url =
-            settings.profile_custom_link_prefix + parseInt(this.customLinkFieldId);
-            this.customLinkUrl = url;
-            this.showCustomLink = true;
+          if (parsingBuffer.length > 0) {
+            this.customLinks.push({
+              customLinkUrl:
+                settings.profile_custom_link_prefix + parsingBuffer,
+              customLinkFieldId: parsingBuffer,
+            });
+            parsingBuffer = "";
+          }
+          customLinkFieldValue = customLinkFieldValue.slice(1);
         }
-      } else {
-        return;
       }
     }
   }

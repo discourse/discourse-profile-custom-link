@@ -1,6 +1,12 @@
-{{#if showCustomLink}}
-  <a href={{customLinkUrl}} target="_blank" rel="noopener noreferrer">
-    <img class="profile-custom-link-icon" src="{{theme-setting "profile_custom_link_icon"}}" />
-    {{customLinkFieldId}}
+{{#each customLinks}}
+  <a href={{this.customLinkUrl}} target="_blank" rel="noopener noreferrer">
+    <img
+      class="profile-custom-link-icon"
+      src={{theme-setting "profile_custom_link_icon"}}
+    />
+    {{this.customLinkFieldId}}
   </a>
-{{/if}}
+  {{#unless @last}}
+    <span class="profile-custom-link-separator">, </span>
+  {{/unless}}
+{{/each}}
