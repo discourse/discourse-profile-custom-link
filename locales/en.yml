@@ -1,3 +1,8 @@
 en:
   theme_metadata:
     description: "Provides the option to add an external link on the user profile."
+    settings:
+      profile_custom_link_field: "The exact name (case sensitive) of the custom user input field used to add an external link on the profile. For example, 'Github username'. If empty, the Discourse username will be used."
+      profile_custom_link_prefix: "The base url for the external link user input field. For example, 'http://github.com/'."
+      profile_custom_link_label: "The label that will be used to display the generated link. For example, 'GitHub'."
+      profile_custom_link_icon: "The icon to be used for the external link."
