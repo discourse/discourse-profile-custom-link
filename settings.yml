@@ -12,4 +12,4 @@ profile_custom_link_label:
   description: "The label that will be used to display the generated link. For example, 'GitHub'."
 profile_custom_link_icon:
   default: "external-link-alt"
-  description: "The the icon to be used for the external link."
+  description: "The icon to be used for the external link."
