@@ -1,6 +1,6 @@
 {
   "about_url": "https://meta.discourse.org/t/custom-profile-link/295470",
-  "license_url": null,
+  "license_url": "https://github.com/discourse/discourse-profile-custom-link/blob/main/LICENSE",
   "assets": {},
   "name": "Custom Profile Link",
   "component": true
