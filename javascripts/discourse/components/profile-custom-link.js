@@ -4,6 +4,7 @@ import { service } from "@ember/service";
 
 export default class ProfileCustomLink extends Component {
   @service site;
+
   @tracked customLinkUrl;
   @tracked customLinkFieldId;
   @tracked showCustomLink = false;
