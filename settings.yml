@@ -8,4 +8,4 @@ profile_custom_link_label:
   type: string
   default: ""
 profile_custom_link_icon:
-  default: "external-link-alt"
+  default: "up-right-from-square"
