@@ -1,6 +1,7 @@
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { service } from "@ember/service";
+import icon from "discourse/helpers/d-icon";
 
 export default class ProfileCustomLink extends Component {
   @service site;
@@ -45,4 +46,13 @@ export default class ProfileCustomLink extends Component {
       this.showCustomLink = true;
     }
   }
+
+  <template>
+    {{#if this.showCustomLink}}
+      <a href={{this.customLinkUrl}} target="_blank" rel="noopener noreferrer">
+        {{icon
+          settings.profile_custom_link_icon
+        }}{{settings.profile_custom_link_label}}</a>
+    {{/if}}
+  </template>
 }
