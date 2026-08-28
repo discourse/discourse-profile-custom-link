@@ -22,10 +22,9 @@ export default class ProfileCustomLink extends Component {
         return;
       }
 
-      const customLinkField = siteUserFields.filterBy(
-        "name",
-        settings.profile_custom_link_field
-      )[0];
+      const customLinkField = siteUserFields.find(
+        (field) => field.name === settings.profile_custom_link_field
+      );
 
       if (!customLinkField) {
         return;
